@@ -5,12 +5,18 @@
     box-sizing: border-box;
 }
 
+body {
+    visibility: hidden;
+}
+
 /* ===== Variables de colores ===== */
 :root {
     --color-header: #2c3e50; /* Azul oscuro */
     --color-aside: #34495e; /* Azul grisáceo */
     --color-footer: #2c3e50; /* Igual que el header */
     --text-color: white;
+    --button: rgb(40, 92, 143);
+    --button-hover: rgb(38, 115, 191);
 }
 
 /* ===== Estilos generales ===== */
@@ -27,6 +33,8 @@ header {
     color: var(--text-color);
     padding: 15px 30px;
     text-align: center;
+    position: fixed;
+    width: 100%;
 }
 
 /* ===== Contenedor principal ===== */
@@ -104,6 +112,50 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* Estilos generales para los botones */
+button {
+    background-color: var(--button);
+    color: white; /* Texto en blanco */
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; /* Suaviza los efectos */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    margin: 5px;
+}
+
+/* Efecto al pasar el mouse */
+button:hover {
+    background-color: var(--button-hover); /* Azul más oscuro */
+    transform: scale(1.05); /* Efecto de zoom leve */
+}
+
+/* Efecto al hacer clic */
+button:active {
+    transform: scale(0.95); /* Pequeño efecto de presión */
+}
+
+.linea-texto {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--button);
+    font-size: 25px;
+    font-weight: bold;
+    margin: 25px 0 10px 0;
+}
+
+.linea-texto::before,
+.linea-texto::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: #4a90e2;
+    margin: 0 10px;
 }
 
 /* ===== DISEÑO RESPONSIVO ===== */

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer type="module" src="../js/scripts.js"></script>
+
+    <!-- cargar librería para implementar el diseño de VSC en html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Contenedor del header (se carga dinámicamente) -->
+    <div id="header-container"></div>
+
+    <main>
+        <!-- Contenedor del aside (se carga dinámicamente) -->
+        <div id="aside-container"></div>
+
+        <!------------------------------------------------------- Sección principal -------------------------------------------->
+        <section>
+            <h2>Conceptos básicos</h2>
+
+            <div class="linea-texto"> <span>Acceso a elementos</span> </div>
+            <!--------------------------------------------->
+
+            <p>Para cambiar un elemento o su estilo podemos hacerlo de forma automática cuando se carga el código Js o
+                hacerlo mediante escuchadores de eventos.
+                <br>
+                Los escuchadores de eventos pueden cargarse en el código html o en el código Js
+            </p>
+            <br>
+            <p id="intro">Utilizaremos este repositorio en Github para el curso de JavaScript</p>
+
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                document.getElementById("intro").innerHTML = "Este texto ha sido cambiado con Js. Archivo script.js";
+            </code></pre>
+
+            <button onclick="cambiarTexto()">Cambiar texto</button> <!-- Llama a la función -->
+
+            <br><br>
+
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                function cambiarTexto() {
+                    document.getElementById("intro").innerHTML =
+                        "Este texto ha sido cambiado con Js. En este caso hemos utilizado una función de script.js";
+                }
+                
+                //Hacemos global la función para poder ser llamada desde html
+                window.cambiarTexto = cambiarTexto;
+            </code></pre>
+
+            <button id="color">Cambiar color</button>
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                //Añadimos un escuchador de eventos a un elemento html
+                document.getElementById("color").addEventListener("click", cambiarColor);
+            </code></pre>
+
+            <div class="linea-texto"> <span>Entrada de información</span> </div>
+            <!--------------------------------------------->
+
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                //obtenemos el valor de un input
+                let input = document.getElementById("input").value;
+
+                //Introducimos un dato por pantalla
+                let dato = window.prompt("Introduce tu nombre");
+
+            </code></pre>
+
+            <div class="linea-texto"> <span>Salida de información</span> </div>
+            <!--------------------------------------------->
+
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                //sustituye el contenido de un elemento con código html
+                document.getElementById("intro").innerHTML = "&lt;h1&gt;Se pueden insertar etiquetas&lt;/h1&gt;";
+
+                //sustituye el texto de un elemento 
+                document.getElementById("intro").innerText = "Este texto ha sido cambiado con Js. Archivo script.js";
+
+                //cambiar todo el contenido html
+                document.write("Hola mundo");
+
+                //Ventana emergente
+                alert("Hola");
+
+                //consola 
+                console.log("Hola");
+            </code></pre>
+
+            <div class="linea-texto"> <span>Operadores</span> </div> <!--------------------------------------------->
+            <p><strong>Operadores aritméticos:</strong> + suma, - resta, * multiplicación, / división, ** potencia, %
+                resto, ++
+                incremento, -- decremento
+                <br><br>
+                <strong>Operadores de asignación:</strong> =, += , -=, *=, /=, %=. Ejemplo x*=2 -> x = x * 2
+                <br><br>
+                <strong>Operadores de comparación:</strong> ==, ===, !=, !==, >, &lt;,>=, &lt;=
+                <br><br>
+                <strong>Operadores lógicos:</strong> && y, || o, ! no
+                <br><br>
+                <strong>Operadores de concatenación:</strong> +. Ejemplo: Nombre = "Javier" + " Garcia";
+                <br><br>
+                <strong>Operadores de incremento y decremento:</strong> ++, --
+                <br><br>
+
+            </p>
+
+
+
+
+        </section>
+    </main>
+
+    <!-- Contenedor del footer (se carga dinámicamente) -->
+    <br><br>
+    <div id="footer-container"></div>
+
+</body>
+
+</html>

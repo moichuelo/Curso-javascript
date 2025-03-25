@@ -1,12 +1,18 @@
-document.addEventListener("DOMContentLoaded", function () {
-    function loadComponent(id, url) {
-        fetch(url)
-            .then((response) => response.text())
-            .then((data) => (document.getElementById(id).innerHTML = data))
-            .catch((error) => console.error(`Error al cargar ${url}:`, error));
-    }
+function cargarcomponente(id, url) {
+    //función local
+    fetch(url) //hace una petición para obtener un arvivo
+        .then((response) => response.text()) //convierte la respuesta a texto
+        .then((data) => (document.getElementById(id).innerHTML = data)) //inserta el texto en el contenedor
+        .catch((error) => console.error(`Error al cargar ${url}:`, error)); //manejo de errores
+}
 
-    loadComponent("header-container", "../pages/partials/header.html");
-    loadComponent("aside-container", "../pages/partials/aside.html");
-    loadComponent("footer-container", "../pages/partials/footer.html");
-});
+export function cargarpartials() {
+    //función que se exporta
+
+    document.addEventListener("DOMContentLoaded", function () {
+        cargarcomponente("header-container", "../pages/partials/header.html"); //llama a la función para cargar el header
+        cargarcomponente("aside-container", "../pages/partials/aside.html");
+        cargarcomponente("footer-container", "../pages/partials/footer.html");
+        document.body.style.visibility = "visible"; //hace visible el body por si hay algún efecto raro
+    });
+}

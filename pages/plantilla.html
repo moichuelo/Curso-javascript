@@ -4,9 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página con Fetch</title>
-    <script defer src="/js/partials.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>JavaScript</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer type="module" src="../js/scripts.js"></script>
+
+    <!-- cargar librería para implementar el diseño de VSC en html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 </head>
 
 <body>
@@ -21,7 +26,14 @@
         <!------------------------------------------------------- Sección principal -------------------------------------------->
         <section>
             <h2>Bienvenido</h2>
-            <p>Este es el contenido principal de la página.</p>
+            <p>Utilizaremos este repositorio en Github para el curso de JavaScript</p>
+
+            <br><br>
+            <p>Ejemplo de consola</p>
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                const mensaje = "Hola desde VS Code";
+                console.log(mensaje);
+            </code></pre>
         </section>
     </main>
 

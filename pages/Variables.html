@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer type="module" src="../js/scripts.js"></script>
+
+    <!-- cargar librería para implementar el diseño de VSC en html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Contenedor del header (se carga dinámicamente) -->
+    <div id="header-container"></div>
+
+    <main>
+        <!-- Contenedor del aside (se carga dinámicamente) -->
+        <div id="aside-container"></div>
+
+        <!------------------------------------------------------- Sección principal -------------------------------------------->
+        <section>
+            <h2>Variables, constantes, arrays y objetos</h2>
+            <p>Archivo variables.js</p>
+
+            <br><br>
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                <span id="variables"></span>
+                //declaración de variables y constantes
+                const Nombre = "Javier"; //constante tipo string
+                let edad = 20; //variable tipo number
+                let altura; //variable tipo undefined
+                let coche = null; //variable tipo null
+                let esMayorDeEdad = true; //variable tipo boolean
+
+                edad = edad + 1;
+                console.log(edad); //21
+
+                //arrays y objetos
+                let alumnos = ["Javier", "Paco", "Luis"]; //array de strings
+                console.log(alumnos[1]); //Paco
+
+                let profesor = {
+                    //objeto
+                    nombre: "Javier",
+                    edad: 20,
+                    altura: 1.8,
+                    coche: null,
+                    esMayorDeEdad: true,
+                    alumnos: ["Olga", "Juan", "Fran"],
+                };
+                console.log(profesor.alumnos[1]); //Juan
+
+                let profesores = [
+                    {
+                        //array de objetos
+                        nombre: "Javier",
+                        edad: 20,
+                        altura: 1.8,
+                        coche: null,
+                        esMayorDeEdad: true,
+                        alumnos: ["Fernando", "María", "Marta"],
+                    },
+                    {
+                        nombre: "Paco",
+                        edad: 20,
+                        altura: 1.8,
+                        coche: null,
+                        esMayorDeEdad: true,
+                        alumnos: ["Antonio", "Sandra", "Ana"],
+                    },
+                ];
+                console.log(profesores[1].alumnos[0]); //Antonio
+            </code></pre>
+        </section>
+    </main>
+
+    <!-- Contenedor del footer (se carga dinámicamente) -->
+    <div id="footer-container"></div>
+
+</body>
+
+</html>
