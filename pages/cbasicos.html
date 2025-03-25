@@ -72,7 +72,41 @@
                 //Introducimos un dato por pantalla
                 let dato = window.prompt("Introduce tu nombre");
 
+                //Elegir entre aceptar y cancelar
+                let respuesta = confirm("¿Estás seguro de continuar?");
+
             </code></pre>
+
+            <p>Confirm está limitado a aceptar y cancelar, pero podemos crear un modal. </p>
+
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                function abrirModal() {
+                    document.getElementById("miModal").style.display = "block";
+                }
+
+                function cerrarModal() {
+                    document.getElementById("miModal").style.display = "none";
+                }
+
+                function accionSi() {
+                    console.log("El usuario eligió: Seguir adelante");
+                    cerrarModal();
+                }
+
+                window.abrirModal = abrirModal;
+                window.cerrarModal = cerrarModal;
+                window.accionSi = accionSi;
+            </code></pre>
+            <button onclick="abrirModal()">Abrir Modal</button>
+
+            <!-- Modal -->
+            <div id="miModal" class="modal">
+                <div class="modal-content">
+                    <p>¿Quieres continuar?</p>
+                    <button onclick="accionSi()">Seguir adelante</button>
+                    <button onclick="cerrarModal()">No, volver</button>
+                </div>
+            </div>
 
             <div class="linea-texto"> <span>Salida de información</span> </div>
             <!--------------------------------------------->

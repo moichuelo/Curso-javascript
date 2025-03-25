@@ -25,3 +25,20 @@ window.cambiarTexto = cambiarTexto;
 function cambiarColor() {
     document.getElementById("intro").style.color = "rgb(250, 104, 0)";
 }
+
+function abrirModal() {
+    document.getElementById("miModal").style.display = "flex";
+}
+
+function cerrarModal() {
+    document.getElementById("miModal").style.display = "none";
+}
+
+function accionSi() {
+    console.log("El usuario eligió: Seguir adelante");
+    cerrarModal();
+}
+
+window.abrirModal = abrirModal;
+window.cerrarModal = cerrarModal;
+window.accionSi = accionSi;
