@@ -10,9 +10,9 @@ export function cargarpartials() {
     //función que se exporta
 
     document.addEventListener("DOMContentLoaded", function () {
-        cargarcomponente("header-container", "../pages/partials/header.html"); //llama a la función para cargar el header
-        cargarcomponente("aside-container", "../pages/partials/aside.html");
-        cargarcomponente("footer-container", "../pages/partials/footer.html");
+        cargarcomponente("header-container", "/pages/partials/header.html"); //llama a la función para cargar el header
+        cargarcomponente("aside-container", "/pages/partials/aside.html");
+        cargarcomponente("footer-container", "/pages/partials/footer.html");
         document.body.style.visibility = "visible"; //hace visible el body por si hay algún efecto raro
     });
 }
