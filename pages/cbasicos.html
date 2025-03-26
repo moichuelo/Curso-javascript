@@ -28,7 +28,8 @@
             <h2>Conceptos básicos</h2>
 
             <div class="linea-texto"> <span>Acceso a elementos</span> </div>
-            <!--------------------------------------------->
+            <!------------------------------------------------------------------------------------------------------------------->
+
 
             <p>Para cambiar un elemento o su estilo podemos hacerlo de forma automática cuando se carga el código Js o
                 hacerlo mediante escuchadores de eventos.
@@ -60,11 +61,16 @@
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
                 //Añadimos un escuchador de eventos a un elemento html
                 document.getElementById("color").addEventListener("click", cambiarColor);
+
+                function cambiarColor() {
+                    document.getElementById("intro").style.color = "rgb(250, 104, 0)";
+                }
             </code></pre>
 
             <div class="linea-texto"> <span>Entrada de información</span> </div>
-            <!--------------------------------------------->
-
+            <!------------------------------------------------------------------------------------------------------------------->
+            <label for="inputname">Introduce tu nombre: </label><input type="text" id="inputname">
+            <button type="button" id="inputbutton">Enviar</button>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
                 //obtenemos el valor de un input
                 let input = document.getElementById("input").value;
@@ -109,7 +115,7 @@
             </div>
 
             <div class="linea-texto"> <span>Salida de información</span> </div>
-            <!--------------------------------------------->
+            <!------------------------------------------------------------------------------------------------------------------->
 
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
                 //sustituye el contenido de un elemento con código html
@@ -128,7 +134,8 @@
                 console.log("Hola");
             </code></pre>
 
-            <div class="linea-texto"> <span>Operadores</span> </div> <!--------------------------------------------->
+            <div class="linea-texto"> <span>Operadores</span> </div>
+            <!------------------------------------------------------------------------------------------------------------------->
             <p><strong>Operadores aritméticos:</strong> + suma, - resta, * multiplicación, / división, ** potencia, %
                 resto, ++
                 incremento, -- decremento

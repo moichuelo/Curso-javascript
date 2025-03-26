@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer type="module" src="../js/scripts.js"></script>
+
+    <!-- cargar librería para implementar el diseño de VSC en html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Contenedor del header (se carga dinámicamente) -->
+    <div id="header-container"></div>
+
+    <main>
+        <!-- Contenedor del aside (se carga dinámicamente) -->
+        <div id="aside-container"></div>
+
+        <!------------------------------------------------------- Sección principal -------------------------------------------->
+        <section>
+            <h2>Condicionales</h2>
+            <p>Para comprobar si se cumple una condición se utilizan los condicionales if/else y switch</p>
+
+            <div class="linea-texto"> <span>IF / ELSE / ELSE IF</span> </div>
+            <!------------------------------------------------------------------------------------------------------------------->
+            <p>El condicional If permite ejecutar un bloque de código si se cumple una condición <br>
+                El condicional Else permite ejecutar un bloque de código si no se cumple la condición <br>
+                El condicional Else If permite evaluar múltiples condiciones</p>
+
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                if (edad >= 18) {
+                    texto = "Eres mayor de edad";
+                    if (nombre == "Javier") { //if anidado
+                        texto = texto + " y te llamas Javier";
+                    } //fin del if
+                    document.getElementById("parrafov").innerHTML = texto;
+                } else {
+                    document.getElementById("parrafov").innerHTML = "Eres menor de edad";
+                }
+
+
+                let date = new Date(); //función nativa de Js que devuelve la fecha y hora actuales
+                let hora = date.getHours(); //función nativa de Js que extrae la hora de la variable date
+            
+                if (hora >= 6 && hora &lt; 12) {
+                    document.getElementById("parrafov2").innerHTML = "Buenos dias";
+                } else if (hora >= 12 && hora &lt; 20) {
+                    document.getElementById("parrafov2").innerHTML = "Buenas tardes";
+                } else {
+                    document.getElementById("parrafov2").innerHTML = "Buenas noches";
+                }
+
+
+                let hora = date.getHours();
+            
+                if (hora >= 6 && hora &lt; 12) { //primera condición
+                    document.getElementById("parrafov2").innerHTML = "Buenos dias";
+                } else if (hora >= 12 && hora &lt; 20) { //comprobación de una segunda condición
+                    document.getElementById("parrafov2").innerHTML = "Buenas tardes";
+                } else { //en caso de no cumplirse ninguna de las dos condiciones
+                    document.getElementById("parrafov2").innerHTML = "Buenas noches";
+                }
+            </code></pre>
+
+            <br>
+            <p>Ejemplo: (tiene un if anidado que en caso de ser mayor a 18 muestra también el nombre que hemos dejado de
+                manera predefinida)</p>
+            <label for="inputedad">Introduce tu edad</label>
+            <input type="text" id="inputedad">
+            <button type="button" id="inputbutton">Comprobar edad</button>
+
+
+            <br><br>
+            <span>Ejemplo 2: comprueba la hora</span><button type="button" id="inputbutton2">Púlsame</button> <span
+                id="parrafov2"></span>
+
+            <div class="linea-texto"> <span>SWITCH</span> </div>
+            <!------------------------------------------------------------------------------------------------------------------->
+            <p>El condicional Switch se utiliza para evaluar múltiples condiciones <br>
+
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                Var date = new Date();
+                Var día = date.getDay(); //función nativa de Js que extrae el día de la semana (guarda un valor de 0 a 6, siendo 0 el domingo)
+                switch (día) {
+                case 0:
+                    day = "Domingo";
+                    break;
+                case 1:
+                    day = "Lunes";
+                    break;
+                case 2:
+                    day = "Martes";
+                    break;
+                case 3:
+                    day = "Miércoles";
+                    break;
+                case 4:
+                    day = "Jueves";
+                    break;
+                case 5:
+                    day = "Viernes";
+                    break;
+                case 6:
+                    day = "Sábado";
+                } 
+
+                console.log(day);
+
+
+                switch (día) { //se pueden agrupar varias condiciones
+                    case 0:
+                    case 6:
+                        day = "Es fin de semana";
+                        break;
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                        day = "Toca currar";
+                }
+
+                switch (nombre) { //si quieremos que se ejecute un código en caso de no haberse cumplido ninguna condición podemos utilizar default
+                    case “Juan”:
+                        console.log(“Hola Juan”)
+                        break;
+                    case “Pedro”:
+                        console.log(“Hola Pedro”)
+                        break;
+                    default:
+                        day = "A ti no te conozco";
+                }
+            </code></pre>
+
+            <span>Ejemplo: comprueba el día de la semana</span><button type="button" id="inputbutton3">Púlsame</button>
+            <span id="parrafov3"></span>
+
+        </section>
+    </main>
+
+    <!-- Contenedor del footer (se carga dinámicamente) -->
+    <br><br>
+    <div id="footer-container"></div>
+
+</body>
+
+</html>

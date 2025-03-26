@@ -17,48 +17,66 @@
 
 /* ===== DISEÑO RESPONSIVO ===== */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "aside"
+            "section"
+            "footer";
     }
-
     aside {
-        width: 200px;
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
     }
-
     section {
-        margin-left: 200px;
+        margin-left: 0;
     }
 }
 
 /* ===== Estilos generales ===== */
 body {
     font-family: "Poppins", sans-serif;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 250px 1fr;
+    grid-template-areas:
+        "header header"
+        "aside section"
+        "footer footer";
     min-height: 100vh;
+    width: 100%;
 }
 
 /* ===== HEADER ===== */
 header {
+    grid-area: header;
     background: var(--color-header);
     color: var(--text-color);
     padding: 15px 30px;
     text-align: center;
-    position: fixed;
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 /* ===== Contenedor principal ===== */
 main {
+    grid-area: section;
     display: flex;
-    flex: 1;
+    flex-direction: column;
+    padding: 20px;
     padding-top: 70px; /* Espacio para el header */
+    overflow-x: hidden;
 }
 
 /* ===== ASIDE ===== */
 aside {
-    width: 250px;
+    grid-area: aside;
     background: var(--color-aside);
     color: white;
     padding: 20px;
@@ -67,6 +85,7 @@ aside {
     top: 70px;
     left: 0;
     overflow-y: auto;
+    width: 250px;
 }
 
 aside h2 {
@@ -109,13 +128,13 @@ aside ul li a:hover {
 
 /* ===== SECCIÓN PRINCIPAL ===== */
 section {
-    margin-left: 250px;
     padding: 20px;
     flex: 1;
 }
 
 /* ===== FOOTER ===== */
 footer {
+    grid-area: footer;
     background: var(--color-footer);
     color: var(--text-color);
     text-align: center;
@@ -124,31 +143,6 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-}
-
-/* Estilos generales para los botones */
-button {
-    background-color: var(--button);
-    color: white; /* Texto en blanco */
-    font-size: 16px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px; /* Bordes redondeados */
-    cursor: pointer;
-    transition: all 0.3s ease-in-out; /* Suaviza los efectos */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-    margin: 5px;
-}
-
-/* Efecto al pasar el mouse */
-button:hover {
-    background-color: var(--button-hover); /* Azul más oscuro */
-    transform: scale(1.05); /* Efecto de zoom leve */
-}
-
-/* Efecto al hacer clic */
-button:active {
-    transform: scale(0.95); /* Pequeño efecto de presión */
 }
 
 .linea-texto {
@@ -193,7 +187,44 @@ button:active {
     animation: fadeIn 0.3s ease-in-out;
 }
 
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 /* Botones */
+/* Estilos generales para los botones */
+button {
+    background-color: var(--button);
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 5px;
+}
+
+/* Efecto al pasar el mouse */
+button:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.05);
+}
+
+/* Efecto al hacer clic */
+button:active {
+    transform: scale(0.95);
+}
+
 button {
     margin: 10px;
     padding: 10px 15px;
@@ -211,16 +242,4 @@ button:first-child {
 button:last-child {
     background-color: #f44336;
     color: white;
-}
-
-/* Animación de entrada */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
