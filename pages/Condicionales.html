@@ -7,7 +7,7 @@
     <title>JavaScript</title>
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="../css/styles.css">
-    <script defer type="module" src="../js/scripts.js"></script>
+    <script type="module" src="../js/scripts.js" defer></script>
 
     <!-- cargar librería para implementar el diseño de VSC en html -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
@@ -18,6 +18,13 @@
 
     <!-- Contenedor del header (se carga dinámicamente) -->
     <header id="header-container"></header>
+
+    <!-- Botón de hamburguesa -->
+    <button class="hamburger" aria-label="Abrir menú">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
 
     <main>
         <!-- Contenedor del aside (se carga dinámicamente) -->
@@ -74,7 +81,7 @@
                 manera predefinida)</p>
             <label for="inputedad">Introduce tu edad</label>
             <input type="text" id="inputedad">
-            <button type="button" id="inputbutton">Comprobar edad</button>
+            <button type="button" onclick="adivinarNumero()" id="inputbutton">Comprobar edad</button>
 
 
             <br><br>
@@ -146,7 +153,6 @@
     </main>
 
     <!-- Contenedor del footer (se carga dinámicamente) -->
-    <br><br>
     <footer id="footer-container"></footer>
 
 </body>

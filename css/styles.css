@@ -17,27 +17,142 @@
 
 /* ===== DISEÑO RESPONSIVO ===== */
 @media (max-width: 768px) {
+    /* Cambiar el layout a columna para pantallas pequeñas */
+    body {
+        font-size: 14px; /* Tamaño de fuente más pequeño para dispositivos pequeños */
+    }
+
     main {
-        display: grid;
-        grid-template-columns: 1fr;
-        padding-top: 40px; /* Espacio para el header */
+        display: block; /* Cambiar de grid a bloque */
+        padding: 15px; /* Añadir un poco de padding para que no quede pegado a los bordes */
     }
+
     aside {
-        width: 100%;
-        height: auto;
-        position: relative; /* Evita que siga fijo */
+        display: none; /* Ocultar el menú en pantallas pequeñas */
+        position: fixed;
         top: 0;
+        left: 0;
+        width: 250px;
+        height: 100vh;
+        background: var(--color-aside);
+        color: white;
+        z-index: 100;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%); /* Lo dejamos fuera de la vista */
     }
+
+    aside.open {
+        display: block;
+        transform: translateX(0); /* Cuando se abre, lo mostramos */
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .hamburger .bar {
+        display: block;
+        width: 30px;
+        height: 4px;
+        margin: 6px 0;
+        background-color: #fff;
+        transition: 0.4s;
+    }
+
+    .hamburger.open .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.open .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.open .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
     section {
         margin-left: 0;
+        padding: 15px;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    footer {
+        font-size: 12px; /* Fuente más pequeña en dispositivos pequeños */
+        padding: 10px;
+    }
+
+    /* Menú lateral */
+    aside ul li a {
+        font-size: 14px; /* Reducir el tamaño de la fuente en los enlaces del menú */
+        padding: 8px 15px; /* Reducir el padding de los enlaces */
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 85%;
+        max-width: 400px;
+        padding: 15px;
+    }
+
+    /* Ajustar botones */
+    button {
+        font-size: 14px; /* Reducir tamaño de la fuente de los botones */
+        padding: 10px 15px;
     }
 }
 
 @media (min-width: 769px) {
+    /* Estilo para dispositivos de escritorio o más grandes */
     main {
         display: grid;
         grid-template-columns: 250px 1fr;
-        padding-top: 70px; /* Espacio para el header */
+        gap: 20px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    footer {
+        font-size: 14px;
+        padding: 15px 30px;
+    }
+
+    aside {
+        display: block;
+        padding: 25px;
+        margin-left: 3px;
+    }
+
+    .hamburger {
+        display: none; /* Ocultar el botón de hamburguesa en pantallas grandes */
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    /* Ajustes del menú lateral en desktop */
+    aside ul li a {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    /* Botones más grandes en desktop */
+    button {
+        font-size: 16px;
+        padding: 12px 20px;
     }
 }
 
@@ -46,16 +161,18 @@ body {
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
     width: 100%;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    overflow-x: hidden;
 }
 
 /* ===== HEADER ===== */
 header {
     background: var(--color-header);
     color: var(--text-color);
-    padding: 15px 30px;
+    padding: 20px;
     text-align: center;
     width: 100%;
-    position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
@@ -69,24 +186,31 @@ header h1 {
 
 /* ===== Contenedor principal ===== */
 main {
-    overflow-x: hidden;
+    min-height: 82vh;
+    margin: 5px;
+    height: 100%;
 }
 
 /* ===== ASIDE ===== */
 aside {
     background: var(--color-aside);
     color: white;
-    padding: 20px;
+    padding: 25px;
     height: 100%;
     top: 70px;
     left: 0;
     overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 aside h2 {
-    font-size: 18px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    padding-bottom: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ecf0f1;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 /* ===== Menú lateral ===== */
@@ -96,7 +220,7 @@ aside ul {
 }
 
 aside ul li {
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 aside ul li a {
@@ -106,8 +230,8 @@ aside ul li a {
     font-weight: bold;
     display: flex;
     align-items: center;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 12px 20px;
+    border-radius: 8px;
     transition: background 0.3s, transform 0.2s;
 }
 
@@ -118,13 +242,16 @@ aside ul li a i {
 
 aside ul li a:hover {
     background: rgba(255, 255, 255, 0.2);
-    transform: translateX(5px);
+    transform: translateX(8px);
 }
 
 /* ===== SECCIÓN PRINCIPAL ===== */
 section {
-    padding: 20px;
-    flex: 1;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 /* ===== FOOTER ===== */
@@ -132,16 +259,19 @@ footer {
     background: var(--color-footer);
     color: var(--text-color);
     text-align: center;
-    padding: 10px;
+    padding: 15px 30px;
     font-size: 14px;
     position: fixed;
     bottom: 0;
     width: 100%;
+    border-top: 2px solid #34495e;
 }
 
+/* ===== LINEA DE TEXTO EN EL FOOTER ===== */
 .linea-texto {
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
     color: var(--button);
     font-size: 25px;
@@ -173,8 +303,8 @@ footer {
 
 .modal-content {
     background: white;
-    padding: 20px;
-    width: 300px;
+    padding: 25px;
+    width: 350px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
@@ -195,7 +325,7 @@ footer {
 
 #imgjs {
     max-width: 100%;
-    height: 350px;
+    height: 330px;
     display: block;
     margin: 0 auto;
 }
@@ -206,13 +336,13 @@ button {
     background-color: var(--button);
     color: white;
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    margin: 5px;
+    margin: 10px;
 }
 
 /* Efecto al pasar el mouse */
@@ -224,15 +354,6 @@ button:hover {
 /* Efecto al hacer clic */
 button:active {
     transform: scale(0.95);
-}
-
-button {
-    margin: 10px;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
 }
 
 button:first-child {

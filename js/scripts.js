@@ -4,6 +4,15 @@ cargarpartials();
 
 let pagina = window.location.pathname.split("/").pop(); //obtenemos el nombre del archivo html que se está visualizando
 
+// JavaScript para manejar la apertura y cierre del menú con el botón hamburguesa
+const hamburger = document.querySelector(".hamburger");
+const aside = document.querySelector("#aside-container");
+
+hamburger.addEventListener("click", () => {
+    aside.classList.toggle("open");
+    hamburger.classList.toggle("open");
+});
+
 //******************************************************************************************************************
 // ************************************************************************** cbasicos.html
 //******************************************************************************************************************
