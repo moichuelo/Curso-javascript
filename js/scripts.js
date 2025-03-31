@@ -136,3 +136,44 @@ function comprobardia() {
             break;
     }
 }
+
+//******************************************************************************************************************
+// ************************************************************************** bucles.html
+//******************************************************************************************************************
+if (pagina == "Bucles.html") {
+    //hacemos una comprobación para que solo afecte a la página que queremos
+    for (let i = 0; i < 10; i++) {
+        document.getElementById("bucles").innerHTML += i + " ";
+    }
+
+    for (let i = 1; i <= 6; i++) {
+        document.getElementById("bucles").innerHTML +=
+            "<h" + i + ">Titulo " + i + "</h" + i + ">";
+    }
+
+    let i = 11 % 2;
+    console.log(i);
+
+    let num = Math.floor(Math.random() * 1000);
+    console.log(num);
+
+    // let pregunta = window.prompt("Dime tu nombre");
+
+    // let i = 1;
+    // while (pregunta != "Juan") {
+    //     pregunta = window.prompt("Dime tu nombre");
+    //     i++;
+    //     if (i == 3) {
+    //         document.getElementById("bucles2").innerHTML =
+    //             "Has fallado 3 veces";
+    //         break;
+    //     }
+    // }
+    // if (i != 3) {
+    //     document.getElementById("bucles2").innerHTML = "Hola Juan";
+    // }
+
+    // do {
+    //     pregunta = window.prompt("Dime tu nombre");
+    // } while (pregunta != "Juan");
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer type="module" src="../js/scripts.js"></script>
+
+    <!-- cargar librería para implementar el diseño de VSC en html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Contenedor del header (se carga dinámicamente) -->
+    <header id="header-container"></header>
+
+    <main>
+        <!-- Contenedor del aside (se carga dinámicamente) -->
+        <aside id="aside-container"></aside>
+
+        <!------------------------------------------------------- Sección principal -------------------------------------------->
+        <section>
+            <h2>Bucles</h2>
+            <p>Los bucles pueden ejecutar un bloque de código varias veces </p>
+
+            <div class="linea-texto"> <span>For</span> </div>
+            <!------------------------------------------------------------------------------------------------------------------->
+            <p>
+                El bucle for se utiliza cuando sabemos el número exacto de veces que se tiene que repetir un bloque.
+                <br><br>El bucle for declara 3 expresiones separadas por ;
+            </p>
+            <ul class="lista">
+                <li>
+                    La primera es la variable de control (se ejecuta antes de iniciar el bucle)</li>
+                <li>
+                    La segunda es la condición que se evalua en cada iteración</li>
+                <li>
+                    La tercera es el incremento que tenemos en cada iteración</li>
+            </ul>
+
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                for (let i = 0; i &lt; 10; i++) {
+                    document.getElementById("bucles").innerHTML += i + " ";
+                }
+            
+                for (let i = 1; i &lt;= 6; i++) {
+                    document.getElementById("bucles").innerHTML +=
+                        "&lt;h" + i + ">Titulo " + i + "&lt;/h" + i + ">";
+                }
+            </code></pre>
+
+            <p id="bucles">
+            </p>
+
+
+            <div class="linea-texto"> <span>While</span> </div>
+            <!------------------------------------------------------------------------------------------------------------------->
+            <p>El bucle while declara 1 expresión, la condición que se evalua en cada iteración. No necesitamos saber el
+                número de repeticiones</p>
+
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                let pregunta = window.prompt("Dime tu nombre");
+
+                let i = 1;
+                while (pregunta != "Juan") {
+                    pregunta = window.prompt("Dime tu nombre");
+                    i++;
+                    if (i == 3) {
+                        document.getElementById("bucles2").innerHTML =
+                            "Has fallado 3 veces";
+                        break;
+                    }
+                }
+
+                if (i != 3) {
+                    document.getElementById("bucles2").innerHTML = "Hola Juan";
+                }
+            </code></pre>
+
+            <div class="linea-texto"> <span>Do while</span> </div>
+            <!------------------------------------------------------------------------------------------------------------------->
+            <p>Variante del bucle while que se ejecuta al menos una vez ya que evalúa la condición tras ejecutar el
+                bloque
+            </p>
+
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                do {
+                    pregunta = window.prompt("Dime tu nombre");
+                } while (pregunta != "Juan");
+            </code></pre>
+
+            <div class="linea-texto"> <span>For in</span> </div>
+            <!------------------------------------------------------------------------------------------------------------------->
+            <p>Recorre las propiedades de un objeto o un array</p>
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                const person = {fname:"John", lname:"Doe", age:25};
+
+                let text = "";
+                for (let x in person) {
+                text += person[x];
+                } //John Doe 25
+
+                const numbers = [45, 4, 9, 16, 25];
+
+                let txt = "";
+                for (let x in numbers) {
+                txt += numbers[x];
+                } //45 4 9 16 25
+
+            </code></pre>
+
+            <div class="linea-texto"> <span>For each</span> </div>
+            <!------------------------------------------------------------------------------------------------------------------->
+            <p>El método forEach() llama a una función por cada elemento de un array. <br>
+                La función recibe 3 valores:</p>
+            <ul class="lista">
+                <li>value: el valor del elemento actual</li>
+                <li>index: la posición del elemento actual</li>
+                <li>array: el array completo</li>
+            </ul>
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                const numbers = [45, 4, 9, 16, 25];
+
+                let txt = "";
+                numbers.forEach(myFunction);
+                document.getElementById("demo").innerHTML = txt;
+
+                function myFunction(value, index, array) {
+                txt += value + "<br>"; 
+                }//45 4 9 16 25
+
+            </code></pre>
+
+            <div class="linea-texto"> <span>For of</span> </div>
+            <!------------------------------------------------------------------------------------------------------------------->
+            <p>Recorre los valores de un objeto iterable</p>
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+                const cars = ["BMW", "Volvo", "Mini"];
+
+                let text = "";
+                for (let x of cars) {
+                    text += x;
+                } //BMW Volvo Mini
+
+                let language = "JavaScript";
+
+                let text = "";
+                for (let x of language) {
+                text += x;
+                } //J a v a S c r i p t
+
+            </code></pre>
+
+            <br><br>
+
+
+            <p id="bucles2">
+            </p>
+        </section>
+    </main>
+
+    <!-- Contenedor del footer (se carga dinámicamente) -->
+    <br><br>
+    <footer id="footer-container"></footer>
+
+</body>
+
+</html>
