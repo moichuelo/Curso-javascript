@@ -48,10 +48,10 @@
 
     .hamburger {
         display: block;
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        background: none;
+        position: fixed;
+        top: 0px;
+        left: 1px;
+        background: var(--button-hover);
         border: none;
         cursor: pointer;
         z-index: 1001;
@@ -59,8 +59,8 @@
 
     .hamburger .bar {
         display: block;
-        width: 30px;
-        height: 4px;
+        width: 15px;
+        height: 1px;
         margin: 6px 0;
         background-color: #fff;
         transition: 0.4s;
@@ -109,6 +109,10 @@
     button {
         font-size: 14px; /* Reducir tamaño de la fuente de los botones */
         padding: 10px 15px;
+    }
+
+    #title {
+        font-size: 20px;
     }
 }
 

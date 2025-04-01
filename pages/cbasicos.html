@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript</title>
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-    <link rel="stylesheet" href="../css/styles.css">
-    <script defer type="module" src="../js/scripts.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script defer type="module" src="/js/scripts.js"></script>
 
     <!-- cargar librería para implementar el diseño de VSC en html -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
@@ -77,7 +77,8 @@
             <div class="linea-texto"> <span>Entrada de información</span> </div>
             <!------------------------------------------------------------------------------------------------------------------->
             <label for="inputname">Introduce tu nombre: </label><input type="text" id="inputname">
-            <button type="button" id="inputbutton">Enviar</button>
+            <button type="button" id="inputb">Enviar con input</button><button type="button" id="inputbutton">Enviar con
+                prompt</button>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
                 //obtenemos el valor de un input
                 let input = document.getElementById("input").value;
@@ -110,14 +111,14 @@
                 window.cerrarModal = cerrarModal;
                 window.accionSi = accionSi;
             </code></pre>
-            <button onclick="abrirModal()">Abrir Modal</button>
+            <button id="amodal">Abrir Modal</button>
 
             <!-- Modal -->
             <div id="miModal" class="modal">
                 <div class="modal-content">
                     <p>¿Quieres continuar?</p>
-                    <button onclick="accionSi()">Seguir adelante</button>
-                    <button onclick="cerrarModal()">No, volver</button>
+                    <button id="asi">Seguir adelante</button>
+                    <button id="cmodal">No, volver</button>
                 </div>
             </div>
 
@@ -159,15 +160,10 @@
                 <br><br>
 
             </p>
-
-
-
-
         </section>
     </main>
 
     <!-- Contenedor del footer (se carga dinámicamente) -->
-    <br><br>
     <footer id="footer-container"></footer>
 
 </body>
