@@ -227,3 +227,219 @@ function adivinarNumero() {
 
     return adivinarNumero();
 }
+
+//9 ******************************************************************************************************************
+//9 ************************************************************************** intdom.html
+//9 ******************************************************************************************************************
+export function intdom() {
+    document.getElementById("tituid").innerHTML = "Introducción a DOM";
+    document.querySelector(".parraqs").innerHTML = "Párrafo con queryselector";
+
+    var listas = document.querySelectorAll(".lisqs");
+    // console.log(listas);
+    for (let i = 0; i < listas.length; i++) {
+        listas[i].style.color = "red";
+    }
+
+    var parrafoss = document.getElementsByTagName("p");
+    console.log(parrafoss);
+
+    var listas2 = document.getElementsByClassName("lisqs");
+    console.log(listas2);
+
+    var articulo = document.createElement("p");
+    articulo.innerHTML = "Nuevo parrafo";
+    document.getElementById("articulo").appendChild(articulo);
+
+    document.getElementById("borrar").remove();
+
+    var parseo = document.getElementById("parsear");
+    parseo.insertAdjacentHTML(
+        "beforebegin",
+        "<span class='nueva'>Esto es un texto</span>"
+    );
+}
+
+//9 ******************************************************************************************************************
+//9 ************************************************************************** eventos.html
+//9 ******************************************************************************************************************
+export function eventos() {
+    var boton = document.getElementById("button");
+    boton.addEventListener("click", (evento) => {
+        alert("Has pulsado el boton");
+    });
+
+    // document.body.addEventListener("keydown", ftecla);
+    document.getElementById("campo").addEventListener("keydown", ftecla);
+
+    var botonr = document.getElementById("buttonr");
+    botonr.addEventListener("click", (evento) => {
+        document.getElementById("campo").removeEventListener("keydown", ftecla);
+    });
+}
+
+function ftecla(evento) {
+    if (evento.key == "Enter") {
+        alert("Has pulsado el boton enter");
+    }
+}
+
+//9 ******************************************************************************************************************
+//9 ************************************************************************** timing.html
+//9 ******************************************************************************************************************
+export function timing() {
+    document.addEventListener("DOMContentLoaded", () => {
+        console.log("Pagina cargada");
+    });
+    document.querySelector("body").addEventListener("load", () => {
+        console.log("Pagina cargada");
+    });
+    alert("Pagina cargada");
+    setTimeout(() => {
+        alert("Hola");
+    }, 3000);
+    let intervalor = setInterval(() => {
+        alert("Hola");
+    }, 2000);
+    setTimeout(() => {
+        clearInterval(intervalor);
+    }, 7000);
+}
+
+//9 ******************************************************************************************************************
+//9 ************************************************************************** metnat.html
+//9 ******************************************************************************************************************
+
+export function metnat() {
+    let suma = "3 + 6";
+    console.log("El resultado tras eval es:" + eval(suma));
+
+    console.log(isNaN(6));
+
+    let nums = 123;
+    let string = String(nums);
+    console.log(string + 12);
+
+    let texto = "hola";
+    let texto2 = "MUNDO";
+    texto = texto.toUpperCase();
+    texto2 = texto2.toLowerCase();
+    console.log(texto);
+    console.log(texto2);
+
+    let numn = Number(string);
+    console.log(numn + 12);
+
+    let num3 = "3.1416";
+    num3 = parseInt(num3);
+    console.log(num3);
+
+    let num4 = "3.1416";
+    console.log(Math.round(num4));
+    console.log(Math.floor(num4));
+    console.log(Math.ceil(num4));
+
+    let precio = 3.57492;
+    console.log(Math.round(precio * 10) / 10);
+
+    let fecha = new Date();
+    console.log(fecha.getDay());
+}
+
+//9 ******************************************************************************************************************
+//9 ************************************************************************** arrays.html
+//9 ******************************************************************************************************************
+
+export function arrays() {
+    let zoo = ["elefante", "gato", "perro", "loro", "mono"];
+    console.log(zoo[1]);
+
+    console.log("El tamaño del array es: " + zoo.length);
+
+    zoo.push("caballo", "jirafa");
+    console.log(zoo);
+
+    // zoo = zoo.concat(["gato", "perro"]); //concatena arrays opción más ineficiente
+    // console.log(zoo);
+
+    // zoo[0] = "gato"; //forma peligrosa de añadir elementos
+    // zoo[1] = "elefante";
+    // console.log(zoo);
+
+    let ultimo = zoo.pop(); // elimina el ultimo elemento y lo devuelve
+    console.log(zoo);
+    console.log(ultimo);
+    console.log("");
+    // let zoo2 = zoo.slice(2, 4); // devuelve una copia del array
+    // console.log(zoo2);
+
+    let primero = zoo.shift(); // elimina el primer elemento y lo devuelve
+    console.log(zoo);
+    console.log(primero);
+
+    zoo.unshift("mono", "delfín"); //pone elementos al principio del array
+    console.log(zoo);
+
+    zoo.splice(1, 2); //elimina 2 elementos a partir de la pos 1
+    console.log(zoo);
+
+    if (zoo.indexOf("caballoo") == -1) {
+        console.log("No se encuentra en el array");
+    } else {
+        console.log("Si se encuentra en el array");
+    }
+
+    console.log(zoo);
+
+    console.log(zoo.indexOf("mono"));
+
+    // guardarHistorial("Crear archivo");
+    // guardarHistorial("escribimos texto");
+    // guardarHistorial("gaurdamos el texto");
+    // guardarHistorial("modificamos el archivo");
+    // guardarHistorial("Crear archivo22222");
+    // guardarHistorial("Eliminamos archivo");
+
+    // console.log(historial);
+
+    // for (let i = 0; i < zoo.length / 2; i++) {
+    //     console.log("la posición de " + zoo[i] + " es " + i);
+    // }
+
+    // zoo.forEach((element, index) => {
+    //     console.log("la posición de " + element + " es " + index);
+    // });
+
+    let numarrays = [1, 2, 3, [4, 5, 6], [7, 8, 9, [10, 11, 12]]];
+    console.log(numarrays[4][3][1]);
+
+    let numarrays2 = numarrays.flat(Infinity);
+    console.log("numarrays2", numarrays2);
+
+    zoo.sort();
+    console.log(zoo);
+
+    let numarrays3 = [5, 10, 22, 1, 4];
+    numarrays3.sort(function (a, b) {
+        return b - a;
+    });
+    console.log(numarrays3);
+
+    console.log(zoo.includes("caballo", 1));
+
+    // let varios = zoo.concat(numarrays3, numarrays2);
+    let varios = [...zoo, ...numarrays3, ...numarrays2];
+    console.log(varios);
+
+    console.log(zoo.join(" - "));
+    console.log(zoo.toString());
+}
+
+// let historial = [];
+// function guardarHistorial(accion) {
+//     historial.unshift(accion);
+
+//     if (historial.length > 5) {
+//         historial.pop();
+//     }
+// }

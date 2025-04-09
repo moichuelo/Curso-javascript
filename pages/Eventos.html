@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer type="module" src="../js/scripts.js"></script>
+
+    <!-- cargar librería para implementar el diseño de VSC en html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Contenedor del header (se carga dinámicamente) -->
+    <header id="header-container"></header>
+
+    <!-- Botón de hamburguesa -->
+    <button class="hamburger" aria-label="Abrir menú">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <main>
+        <!-- Contenedor del aside (se carga dinámicamente) -->
+        <aside id="aside-container"></aside>
+
+        <!------------------------------------------------------- Sección principal -------------------------------------------->
+        <section>
+            <h2>Eventos y escuchadores</h2>
+            <p>Los eventos son aquello que sucede mientras el usuario interactua con el navegador. Los eventos más
+                comunes son:</p>
+            <br>
+            <ul class="lista">
+                <li><b>click</b>, para detectar cuando se hace click</li>
+                <li><b>scroll</b>, para detectar cuando se hace scroll</li>
+                <li><b>submit</b>, para detectar cuando se envia un formulario</li>
+                <li><b>change</b>, para detectar cuando cambia el contenido de un elemento</li>
+                <li><b>focus</b>, para detectar cuando entra el foco del elemento</li>
+                <li><b>blur</b>, para detectar cuando sale el foco del elemento</li>
+                <li><b>mouseover</b>, para detectar cuando entra el ratón en el elemento</li>
+                <li><b>mouseout</b>, para detectar cuando sale el ratón del elemento</li>
+                <li><b>mousemove</b>, para detectar el movimiento del ratón sobre el elemento</li>
+                <li><b>keydown</b>, para detectar la tecla pulsada</li>
+                <li><b>keyup</b>, para detectar la tecla soltada</li>
+                <li><b>load</b>, para detectar la carga de la página o un elemento</li>
+                <li><b>resize</b>, para detectar el cambio de tamaño de la ventana</li>
+            </ul>
+            <br><br>
+            <button id="button">Púlsame</button>
+
+            <input type="text" id="campo" placeholder="Escribe y pulsa enter">
+
+            <button id="buttonr">Púlsame para borrar</button>
+
+            <p>Para controlar los eventos se utiliza <span class="resaltado">addEventListener()</span></p>
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+    document.querySelector("#formulario")
+        .addEventListener("submit", function(evento) {
+        console.log('Se ha enviado el formulario');
+    });
+
+            </code></pre>
+        </section>
+    </main>
+
+    <!-- Contenedor del footer (se carga dinámicamente) -->
+    <br><br>
+    <footer id="footer-container"></footer>
+
+</body>
+
+</html>

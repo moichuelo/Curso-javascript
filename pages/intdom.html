@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script defer type="module" src="../js/scripts.js"></script>
+
+    <!-- cargar librería para implementar el diseño de VSC en html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Contenedor del header (se carga dinámicamente) -->
+    <header id="header-container"></header>
+
+    <!-- Botón de hamburguesa -->
+    <button class="hamburger" aria-label="Abrir menú">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <main>
+        <!-- Contenedor del aside (se carga dinámicamente) -->
+        <aside id="aside-container"></aside>
+
+        <!------------------------------------------------------- Sección principal -------------------------------------------->
+        <section>
+            <h2>Interactuando con el DOM</h2>
+            <p>Los elementos en el DOM se organizan jerárquicamente según se han creado las diferentes etiquetas en el
+                documento html.</p>
+            <img src="/img/Document.jpg" alt="DOM" height="500px">
+            <p>Para interaccionar con los elementos del DOM se utilizan diferentes métodos. Los más habituales son:</p>
+            <br>
+            <ul class="lista">
+                <li><b>getElementById()</b>, por ID </li>
+                <li><b>querySelector()</b>, por selector</li>
+                <li><b>querySelectorAll()</b>, selector de varias coincidencias</li>
+                <li><b>document.getElementsByTagName()</b>, por etiqueta</li>
+                <li><b>document.getElementsByClassName()</b>, por clase</li>
+            </ul>
+
+            <br><br>
+            <p>Ejemplo de consola</p>
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+    document.getElementById("tituid").innerHTML = "Introducción a DOM";
+    document.querySelector(".parraqs").innerHTML = "Párrafo con queryselector";
+
+    var listas = document.querySelectorAll(".lisqs");
+    // console.log(listas);
+    for (let i = 0; i &lt; listas.length; i++) {
+        listas[i].style.color = "red";
+    }
+
+    var parrafoss = document.getElementsByTagName("p");
+    console.log(parrafoss);
+
+    var listas2 = document.getElementsByClassName("lisqs");
+    console.log(listas2);
+
+    
+            </code></pre>
+
+            <br><br>
+            <h1 id="tituid">Este título está enlazado por id</h1>
+            <p id="parraq" class="parraqs">Este párrafo se cambiará por querySelector</p>
+            <ul class="lista">
+                <li class="lisqs"><b>getElementById()</b>, por ID </li>
+                <li class="lisqs"><b>querySelector()</b>, por selector</li>
+                <li class="lisqs"><b>querySelectorAll()</b>, selector de varias coincidencias</li>
+            </ul>
+
+            <br><br>
+            <p>Manipulación del DOM y creación de elementos <br>
+                Se puede definir donde se quiere insertar el nuevo código HTML con <b>insertAdjacentHTML()</b>. El
+                primer parámetro marca justamente la posición donde se insertará:
+            </p>
+            <ul class="lista">
+                <li><b>beforebegin</b>, para insertar antes del elemento</li>
+                <li><b>afterbegin</b>, para insertar despues del elemento</li>
+                <li><b>beforeend</b>, para insertar antes del elemento</li>
+                <li><b>afterend</b>, para insertar despues del elemento</li>
+                </li>
+            </ul>
+            <br>
+            <p>También podemos crear elementos con <b>createElement()</b> y luego anadirlos con <b>appendChild()</b>. Si
+                queremos eliminarlos podemos utilizar <b>remove()</b> </p>
+            <br>
+
+            <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
+            
+    var articulo = document.createElement("p");
+    articulo.innerHTML = "Nuevo parrafo";
+    document.getElementById("articulo").appendChild(articulo);
+
+    document.getElementById("borrar").remove();
+
+    var parseo = document.getElementById("parsear");
+    parseo.insertAdjacentHTML(
+        "beforebegin",
+        "&lt;span class='nueva'>Esto es un texto&lt;/span>"
+    );
+            </code></pre>
+
+
+            <div id="articulo"></div>
+            <p id="borrar">Se va a borrar en html</p>
+            <p id="parsear"> <span> span1 </span> <span> span2 </span></p>
+
+        </section>
+    </main>
+
+    <!-- Contenedor del footer (se carga dinámicamente) -->
+    <footer id="footer-container"></footer>
+
+</body>
+
+</html>

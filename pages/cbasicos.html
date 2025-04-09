@@ -47,7 +47,7 @@
             <p id="intro">Utilizaremos este repositorio en Github para el curso de JavaScript</p>
 
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                document.getElementById("intro").innerHTML = "Este texto ha sido cambiado con Js. Archivo script.js";
+    document.getElementById("intro").innerHTML = "Este texto ha sido cambiado con Js. Archivo script.js";
             </code></pre>
 
             <button onclick="cambiarTexto()">Cambiar texto</button> <!-- Llama a la función -->
@@ -55,23 +55,23 @@
             <br><br>
 
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                function cambiarTexto() {
-                    document.getElementById("intro").innerHTML =
-                        "Este texto ha sido cambiado con Js. En este caso hemos utilizado una función de script.js";
-                }
-                
-                //Hacemos global la función para poder ser llamada desde html
-                window.cambiarTexto = cambiarTexto;
+    function cambiarTexto() {
+        document.getElementById("intro").innerHTML =
+            "Este texto ha sido cambiado con Js. En este caso hemos utilizado una función de script.js";
+    }
+    
+    //Hacemos global la función para poder ser llamada desde html
+    window.cambiarTexto = cambiarTexto;
             </code></pre>
 
             <button id="color">Cambiar color</button>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                //Añadimos un escuchador de eventos a un elemento html
-                document.getElementById("color").addEventListener("click", cambiarColor);
+    //Añadimos un escuchador de eventos a un elemento html
+    document.getElementById("color").addEventListener("click", cambiarColor);
 
-                function cambiarColor() {
-                    document.getElementById("intro").style.color = "rgb(250, 104, 0)";
-                }
+    function cambiarColor() {
+        document.getElementById("intro").style.color = "rgb(250, 104, 0)";
+    }
             </code></pre>
 
             <div class="linea-texto"> <span>Entrada de información</span> </div>
@@ -80,36 +80,36 @@
             <button type="button" id="inputb">Enviar con input</button><button type="button" id="inputbutton">Enviar con
                 prompt</button>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                //obtenemos el valor de un input
-                let input = document.getElementById("input").value;
+    //obtenemos el valor de un input
+    let input = document.getElementById("input").value;
 
-                //Introducimos un dato por pantalla
-                let dato = window.prompt("Introduce tu nombre");
+    //Introducimos un dato por pantalla
+    let dato = window.prompt("Introduce tu nombre");
 
-                //Elegir entre aceptar y cancelar
-                let respuesta = confirm("¿Estás seguro de continuar?");
+    //Elegir entre aceptar y cancelar
+    let respuesta = confirm("¿Estás seguro de continuar?");
 
             </code></pre>
 
             <p>Confirm está limitado a aceptar y cancelar, pero podemos crear un modal. </p>
 
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                function abrirModal() {
-                    document.getElementById("miModal").style.display = "block";
-                }
+    function abrirModal() {
+        document.getElementById("miModal").style.display = "block";
+    }
 
-                function cerrarModal() {
-                    document.getElementById("miModal").style.display = "none";
-                }
+    function cerrarModal() {
+        document.getElementById("miModal").style.display = "none";
+    }
 
-                function accionSi() {
-                    console.log("El usuario eligió: Seguir adelante");
-                    cerrarModal();
-                }
+    function accionSi() {
+        console.log("El usuario eligió: Seguir adelante");
+        cerrarModal();
+    }
 
-                window.abrirModal = abrirModal;
-                window.cerrarModal = cerrarModal;
-                window.accionSi = accionSi;
+    window.abrirModal = abrirModal;
+    window.cerrarModal = cerrarModal;
+    window.accionSi = accionSi;
             </code></pre>
             <button id="amodal">Abrir Modal</button>
 
@@ -126,20 +126,20 @@
             <!------------------------------------------------------------------------------------------------------------------->
 
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                //sustituye el contenido de un elemento con código html
-                document.getElementById("intro").innerHTML = "&lt;h1&gt;Se pueden insertar etiquetas&lt;/h1&gt;";
+    //sustituye el contenido de un elemento con código html
+    document.getElementById("intro").innerHTML = "&lt;h1&gt;Se pueden insertar etiquetas&lt;/h1&gt;";
 
-                //sustituye el texto de un elemento 
-                document.getElementById("intro").innerText = "Este texto ha sido cambiado con Js. Archivo script.js";
+    //sustituye el texto de un elemento 
+    document.getElementById("intro").innerText = "Este texto ha sido cambiado con Js. Archivo script.js";
 
-                //cambiar todo el contenido html
-                document.write("Hola mundo");
+    //cambiar todo el contenido html
+    document.write("Hola mundo");
 
-                //Ventana emergente
-                alert("Hola");
+    //Ventana emergente
+    alert("Hola");
 
-                //consola 
-                console.log("Hola");
+    //consola 
+    console.log("Hola");
             </code></pre>
 
             <div class="linea-texto"> <span>Operadores</span> </div>

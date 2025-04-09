@@ -51,14 +51,14 @@
             </ul>
 
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                for (let i = 0; i &lt; 10; i++) {
-                    document.getElementById("bucles").innerHTML += i + " ";
-                }
-            
-                for (let i = 1; i &lt;= 6; i++) {
-                    document.getElementById("bucles").innerHTML +=
-                        "&lt;h" + i + ">Titulo " + i + "&lt;/h" + i + ">";
-                }
+    for (let i = 0; i &lt; 10; i++) {
+        document.getElementById("bucles").innerHTML += i + " ";
+    }
+
+    for (let i = 1; i &lt;= 6; i++) {
+        document.getElementById("bucles").innerHTML +=
+            "&lt;h" + i + ">Titulo " + i + "&lt;/h" + i + ">";
+    }
             </code></pre>
 
             <p id="bucles">
@@ -71,22 +71,22 @@
                 número de repeticiones</p>
 
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                let pregunta = window.prompt("Dime tu nombre");
+    let pregunta = window.prompt("Dime tu nombre");
 
-                let i = 1;
-                while (pregunta != "Juan") {
-                    pregunta = window.prompt("Dime tu nombre");
-                    i++;
-                    if (i == 3) {
-                        document.getElementById("bucles2").innerHTML =
-                            "Has fallado 3 veces";
-                        break;
-                    }
-                }
+    let i = 1;
+    while (pregunta != "Juan") {
+        pregunta = window.prompt("Dime tu nombre");
+        i++;
+        if (i == 3) {
+            document.getElementById("bucles2").innerHTML =
+                "Has fallado 3 veces";
+            break;
+        }
+    }
 
-                if (i != 3) {
-                    document.getElementById("bucles2").innerHTML = "Hola Juan";
-                }
+    if (i != 3) {
+        document.getElementById("bucles2").innerHTML = "Hola Juan";
+    }
             </code></pre>
 
             <p id="bucles2">
@@ -108,19 +108,19 @@
             <!------------------------------------------------------------------------------------------------------------------->
             <p>Recorre las propiedades de un objeto o un array</p>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                const person = {fname:"John", lname:"Doe", age:25};
+    const person = {fname:"John", lname:"Doe", age:25};
 
-                let text = "";
-                for (let x in person) {
-                text += person[x];
-                } //John Doe 25
+    let text = "";
+    for (let x in person) {
+    text += person[x];
+    } //John Doe 25
 
-                const numbers = [45, 4, 9, 16, 25];
+    const numbers = [45, 4, 9, 16, 25];
 
-                let txt = "";
-                for (let x in numbers) {
-                txt += numbers[x];
-                } //45 4 9 16 25
+    let txt = "";
+    for (let x in numbers) {
+    txt += numbers[x];
+    } //45 4 9 16 25
 
             </code></pre>
 
@@ -134,15 +134,15 @@
                 <li>array: el array completo</li>
             </ul>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                const numbers = [45, 4, 9, 16, 25];
+    const numbers = [45, 4, 9, 16, 25];
 
-                let txt = "";
-                numbers.forEach(myFunction);
-                document.getElementById("demo").innerHTML = txt;
+    let txt = "";
+    numbers.forEach(myFunction);
+    document.getElementById("demo").innerHTML = txt;
 
-                function myFunction(value, index, array) {
-                txt += value + "<br>"; 
-                }//45 4 9 16 25
+    function myFunction(value, index, array) {
+    txt += value + "<br>"; 
+    }//45 4 9 16 25
 
             </code></pre>
 
@@ -150,19 +150,19 @@
             <!------------------------------------------------------------------------------------------------------------------->
             <p>Recorre los valores de un objeto iterable</p>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                const cars = ["BMW", "Volvo", "Mini"];
+    const cars = ["BMW", "Volvo", "Mini"];
 
-                let text = "";
-                for (let x of cars) {
-                    text += x;
-                } //BMW Volvo Mini
+    let text = "";
+    for (let x of cars) {
+        text += x;
+    } //BMW Volvo Mini
 
-                let language = "JavaScript";
+    let language = "JavaScript";
 
-                let text = "";
-                for (let x of language) {
-                text += x;
-                } //J a v a S c r i p t
+    let text = "";
+    for (let x of language) {
+    text += x;
+    } //J a v a S c r i p t
 
             </code></pre>
 

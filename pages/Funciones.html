@@ -187,45 +187,45 @@
             <p>Importación dinámica. Podemos importar las funciones a medida que se necesiten, de esta forma reducimos
                 la carga </p>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                //en archivo script.js
-                if (pagina == "cbasicos.html") {
-                    import("/js/funciones.js")
-                        .then((module) => {
-                            module.cbasico();
-                        })
-                        .catch((error) => {
-                            console.error("Error al cargar el módulo:", error);
-                        });
-                    cbasico();
-                }
+    //en archivo script.js
+    if (pagina == "cbasicos.html") {
+        import("/js/funciones.js")
+            .then((module) => {
+                module.cbasico();
+            })
+            .catch((error) => {
+                console.error("Error al cargar el módulo:", error);
+            });
+        cbasico();
+    }
 
-                //en archivo funciones.js
-                export function cbasicos() {
-                    //8 código js que se ejecutrá cuando se carga el html cbasicos.html
-                    document.getElementById("intro").innerHTML =
-                        "Este texto ha sido cambiado con Js. Archivo script.js";
-                
-                    //Añadimos un escuchador de eventos a un elemento html
-                    document.getElementById("color").addEventListener("click", cambiarColor);
-                    document
-                        .getElementById("inputbutton")
-                        .addEventListener("click", saludarprompt); //se puede llamar a la función saludar para utilizar el input
-                    document.getElementById("inputb").addEventListener("click", () => {
-                        saludar(); // Ejecutamos la función cuando se hace clic
-                    });
-                
-                    document.getElementById("amodal").addEventListener("click", () => {
-                        abrirModal(); // Ejecutamos la función cuando se hace clic
-                    });
-                
-                    document.getElementById("cmodal").addEventListener("click", () => {
-                        cerrarModal(); // Ejecutamos la función cuando se hace clic
-                    });
-                
-                    document.getElementById("asi").addEventListener("click", () => {
-                        accionSi(); // Ejecutamos la función cuando se hace clic
-                    });
-                }
+    //en archivo funciones.js
+    export function cbasicos() {
+        //8 código js que se ejecutrá cuando se carga el html cbasicos.html
+        document.getElementById("intro").innerHTML =
+            "Este texto ha sido cambiado con Js. Archivo script.js";
+    
+        //Añadimos un escuchador de eventos a un elemento html
+        document.getElementById("color").addEventListener("click", cambiarColor);
+        document
+            .getElementById("inputbutton")
+            .addEventListener("click", saludarprompt); //se puede llamar a la función saludar para utilizar el input
+        document.getElementById("inputb").addEventListener("click", () => {
+            saludar(); // Ejecutamos la función cuando se hace clic
+        });
+    
+        document.getElementById("amodal").addEventListener("click", () => {
+            abrirModal(); // Ejecutamos la función cuando se hace clic
+        });
+    
+        document.getElementById("cmodal").addEventListener("click", () => {
+            cerrarModal(); // Ejecutamos la función cuando se hace clic
+        });
+    
+        document.getElementById("asi").addEventListener("click", () => {
+            accionSi(); // Ejecutamos la función cuando se hace clic
+        });
+    }
                 
             </code></pre>
 

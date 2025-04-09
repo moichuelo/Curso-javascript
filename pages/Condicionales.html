@@ -42,38 +42,38 @@
                 El condicional Else If permite evaluar múltiples condiciones</p>
 
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                if (edad >= 18) {
-                    texto = "Eres mayor de edad";
-                    if (nombre == "Javier") { //if anidado
-                        texto = texto + " y te llamas Javier";
-                    } //fin del if
-                    document.getElementById("parrafov").innerHTML = texto;
-                } else {
-                    document.getElementById("parrafov").innerHTML = "Eres menor de edad";
-                }
+    if (edad >= 18) {
+        texto = "Eres mayor de edad";
+        if (nombre == "Javier") { //if anidado
+            texto = texto + " y te llamas Javier";
+        } //fin del if
+        document.getElementById("parrafov").innerHTML = texto;
+    } else {
+        document.getElementById("parrafov").innerHTML = "Eres menor de edad";
+    }
 
 
-                let date = new Date(); //función nativa de Js que devuelve la fecha y hora actuales
-                let hora = date.getHours(); //función nativa de Js que extrae la hora de la variable date
-            
-                if (hora >= 6 && hora &lt; 12) {
-                    document.getElementById("parrafov2").innerHTML = "Buenos dias";
-                } else if (hora >= 12 && hora &lt; 20) {
-                    document.getElementById("parrafov2").innerHTML = "Buenas tardes";
-                } else {
-                    document.getElementById("parrafov2").innerHTML = "Buenas noches";
-                }
+    let date = new Date(); //función nativa de Js que devuelve la fecha y hora actuales
+    let hora = date.getHours(); //función nativa de Js que extrae la hora de la variable date
+
+    if (hora >= 6 && hora &lt; 12) {
+        document.getElementById("parrafov2").innerHTML = "Buenos dias";
+    } else if (hora >= 12 && hora &lt; 20) {
+        document.getElementById("parrafov2").innerHTML = "Buenas tardes";
+    } else {
+        document.getElementById("parrafov2").innerHTML = "Buenas noches";
+    }
 
 
-                let hora = date.getHours();
-            
-                if (hora >= 6 && hora &lt; 12) { //primera condición
-                    document.getElementById("parrafov2").innerHTML = "Buenos dias";
-                } else if (hora >= 12 && hora &lt; 20) { //comprobación de una segunda condición
-                    document.getElementById("parrafov2").innerHTML = "Buenas tardes";
-                } else { //en caso de no cumplirse ninguna de las dos condiciones
-                    document.getElementById("parrafov2").innerHTML = "Buenas noches";
-                }
+    let hora = date.getHours();
+
+    if (hora >= 6 && hora &lt; 12) { //primera condición
+        document.getElementById("parrafov2").innerHTML = "Buenos dias";
+    } else if (hora >= 12 && hora &lt; 20) { //comprobación de una segunda condición
+        document.getElementById("parrafov2").innerHTML = "Buenas tardes";
+    } else { //en caso de no cumplirse ninguna de las dos condiciones
+        document.getElementById("parrafov2").innerHTML = "Buenas noches";
+    }
             </code></pre>
 
             <br>
@@ -93,57 +93,57 @@
             <p>El condicional Switch se utiliza para evaluar múltiples condiciones <br>
 
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                Var date = new Date();
-                Var día = date.getDay(); //función nativa de Js que extrae el día de la semana (guarda un valor de 0 a 6, siendo 0 el domingo)
-                switch (día) {
-                case 0:
-                    day = "Domingo";
-                    break;
-                case 1:
-                    day = "Lunes";
-                    break;
-                case 2:
-                    day = "Martes";
-                    break;
-                case 3:
-                    day = "Miércoles";
-                    break;
-                case 4:
-                    day = "Jueves";
-                    break;
-                case 5:
-                    day = "Viernes";
-                    break;
-                case 6:
-                    day = "Sábado";
-                } 
+    Var date = new Date();
+    Var día = date.getDay(); //función nativa de Js que extrae el día de la semana (guarda un valor de 0 a 6, siendo 0 el domingo)
+    switch (día) {
+    case 0:
+        day = "Domingo";
+        break;
+    case 1:
+        day = "Lunes";
+        break;
+    case 2:
+        day = "Martes";
+        break;
+    case 3:
+        day = "Miércoles";
+        break;
+    case 4:
+        day = "Jueves";
+        break;
+    case 5:
+        day = "Viernes";
+        break;
+    case 6:
+        day = "Sábado";
+    } 
 
-                console.log(day);
+    console.log(day);
 
 
-                switch (día) { //se pueden agrupar varias condiciones
-                    case 0:
-                    case 6:
-                        day = "Es fin de semana";
-                        break;
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        day = "Toca currar";
-                }
+    switch (día) { //se pueden agrupar varias condiciones
+        case 0:
+        case 6:
+            day = "Es fin de semana";
+            break;
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            day = "Toca currar";
+    }
 
-                switch (nombre) { //si quieremos que se ejecute un código en caso de no haberse cumplido ninguna condición podemos utilizar default
-                    case “Juan”:
-                        console.log(“Hola Juan”)
-                        break;
-                    case “Pedro”:
-                        console.log(“Hola Pedro”)
-                        break;
-                    default:
-                        day = "A ti no te conozco";
-                }
+    switch (nombre) { //si quieremos que se ejecute un código en caso de no haberse cumplido ninguna condición podemos utilizar default
+        case “Juan”:
+            console.log(“Hola Juan”)
+            break;
+        case “Pedro”:
+            console.log(“Hola Pedro”)
+            break;
+        default:
+            day = "A ti no te conozco";
+    }
             </code></pre>
 
             <span>Ejemplo: comprueba el día de la semana</span><button type="button" id="inputbutton3">Púlsame</button>
