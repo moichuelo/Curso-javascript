@@ -39,67 +39,67 @@
             <br><br>
             <p>Sintaxis de una función: </p>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                function saludo() {
-                    console.log('Hola a todos');
-                }
-                    
-                saludo(); //llamada a la función
-                // Hola a todos
+    function saludo() {
+        console.log('Hola a todos');
+    }
+        
+    saludo(); //llamada a la función
+    // Hola a todos
             </code></pre>
 
             <br>
             <p>Las funciones pueden recibir información mediante argumentos </p>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                function saludo(nombre, localidad) {
-                    console.log(`Hola a ${nombre} desde ${localidad}`);
-                }
-                
-                saludo('Luis', 'Valencia');
-                // Hola a Luis desde Valencia                
+    function saludo(nombre, localidad) {
+        console.log(`Hola a ${nombre} desde ${localidad}`);
+    }
+    
+    saludo('Luis', 'Valencia');
+    // Hola a Luis desde Valencia                
             </code></pre>
 
             <br>
             <p>Se pueden definir argumentos por defecto para definir valores predefinidos </p>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                function saludaA(nombre='todos') {
-                    console.log(`Hola a ${nombre}`);
-                }
-                
-                saludaA();
-                // Hola a todos
-                saludaA('Luis');
-                // Hola a Luis                             
+    function saludaA(nombre='todos') {
+        console.log(`Hola a ${nombre}`);
+    }
+    
+    saludaA();
+    // Hola a todos
+    saludaA('Luis');
+    // Hola a Luis                             
             </code></pre>
 
             <br>
             <p>Las funciones pueden devolver información mediante return. También sirve para salir de las funciones </p>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                function saluda() {
-                    return 'Hola a todos';
-                }
-                
-                const texto = saluda();
-                
-                console.log(texto);
-                // Hola a todos
+    function saluda() {
+        return 'Hola a todos';
+    }
+    
+    const texto = saluda();
+    
+    console.log(texto);
+    // Hola a todos
             </code></pre>
 
             <br>
             <p>Las funciones pueden llamar a otras funciones o a sí mismas (recursividad) </p>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                function adivinarNumero() {
-                    // Variables
-                    const numeroAdivinar = 4;
-                    const respuesta = prompt('Del 1 al 5, ¿en que número estoy pensando?');
-                    // Lógica
-                    if (respuesta == numeroAdivinar) {
-                        alert("¡Lo has adivinado!")
-                        return true;
-                    }
-                    return adivinarNumero();
-                }
-                
-                adivinarNumero();                
+    function adivinarNumero() {
+        // Variables
+        const numeroAdivinar = 4;
+        const respuesta = prompt('Del 1 al 5, ¿en que número estoy pensando?');
+        // Lógica
+        if (respuesta == numeroAdivinar) {
+            alert("¡Lo has adivinado!")
+            return true;
+        }
+        return adivinarNumero();
+    }
+    
+    adivinarNumero();                
             </code></pre>
 
             <br>
@@ -107,34 +107,34 @@
                 /** */ <br>
                 También nos podemos apoyar en extensiones como Codeium para generar estos comentarios</p>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                /**
-                * Adivina un número entre 1 y 5
-                *
-                * Pide un número al usuario y si coincide con el número secreto
-                * (3) muestra un mensaje de "Has ganado" y devuelve true.
-                * Si no coincide, vuelve a llamar a si misma hasta que el usuario
-                * acierte el número.
-                *
-                * @return {boolean} True si el usuario acierta el número
-                */
-                function adivinarNumero() {
-                    const adv = 3;
-                    const respuesta = window.prompt("introduce un número del 1 al 5");
-                
-                    if (respuesta == adv) {
-                        alert("Has ganado");
-                        return true;
-                    }
-                
-                    return adivinarNumero();
-                }              
+    /**
+    * Adivina un número entre 1 y 5
+    *
+    * Pide un número al usuario y si coincide con el número secreto
+    * (3) muestra un mensaje de "Has ganado" y devuelve true.
+    * Si no coincide, vuelve a llamar a si misma hasta que el usuario
+    * acierte el número.
+    *
+    * @return {boolean} True si el usuario acierta el número
+    */
+    function adivinarNumero() {
+        const adv = 3;
+        const respuesta = window.prompt("introduce un número del 1 al 5");
+    
+        if (respuesta == adv) {
+            alert("Has ganado");
+            return true;
+        }
+    
+        return adivinarNumero();
+    }              
             </code></pre>
 
             <div class="linea-texto"> <span>Exportar e importar funciones</span> </div>
             <!------------------------------------------------------------------------------------------------------------------->
             <p>Para poder importar funciones, debemos agregarel atributo type="module" a la carga del archivo JS </p>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                &lt;script defer type="module" src="../js/scripts.js">&lt;/script>
+    &lt;script defer type="module" src="../js/scripts.js">&lt;/script>
             </code></pre>
 
             <br><br>
@@ -145,13 +145,13 @@
             </ul>
             </p>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                export const name = "Jesse";
-                export const age = 40;
+    export const name = "Jesse";
+    export const age = 40;
 
-                //o
+    //o
 
-                const name = "Moi";
-                const age = 35;
+    const name = "Moi";
+    const age = 35;
                 export {name, age};
             </code></pre>
 
@@ -159,28 +159,28 @@
             <p>Para importar utilizamos import. Podemos importar todas las funciones con * Añadiendo un alias que
                 utilizaremos para llamar a las diferentes funciones </p>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                import { name, age } from "./person.js";
+    import { name, age } from "./person.js";
 
-                //organizarlo
+    //organizarlo
 
-                import * as saludo from './saludo.js';
-                console.log(saludo.name);  // Moi
+    import * as saludo from './saludo.js';
+    console.log(saludo.name);  // Moi
             </code></pre>
 
             <br><br>
             <p>También podemos utilizar la exportación e importación por defecto. Tiene unos ligeros cambios en la
                 sintaxis, y solo se puede definir un elemento por defecto en cada archivo </p>
             <pre><code class="language-js"> <!-- Clase que importa el diseño de consola -->
-                const message = () => {
-                    const name = "Moi";
-                    const age = 35;
-                    return name + ' tiene ' + age + ' años';
-                    };
-                    
-                export default message;
+    const message = () => {
+        const name = "Moi";
+        const age = 35;
+        return name + ' tiene ' + age + ' años';
+        };
+        
+    export default message;
 
-                //
-                import message from "./message.js";                
+    //
+    import message from "./message.js";                
             </code></pre>
 
             <br><br>
@@ -235,7 +235,6 @@
     </main>
 
     <!-- Contenedor del footer (se carga dinámicamente) -->
-    <br><br>
     <footer id="footer-container"></footer>
 
 </body>
