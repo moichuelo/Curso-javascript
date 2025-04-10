@@ -1,17 +1,33 @@
-function cargarcomponente(id, url) {
-    //función local
-    fetch(url) //hace una petición para obtener un arvivo
-        .then((response) => response.text()) //convierte la respuesta a texto
-        .then((data) => (document.getElementById(id).innerHTML = data)) //inserta el texto en el contenedor
-        .catch((error) => console.error(`Error al cargar ${url}:`, error)); //manejo de errores
+function cargarcomponente(id, url, callback) {
+    fetch(url)
+        .then((response) => response.text())
+        .then((data) => {
+            document.getElementById(id).innerHTML = data;
+            if (typeof callback === "function") callback(); // Ejecuta el callback si existe
+        })
+        .catch((error) => console.error(`Error al cargar ${url}:`, error));
+}
+
+function resaltarEnlaceActivo() {
+    const links = document.querySelectorAll("#aside-container ul li a");
+    const currentUrl = window.location.pathname;
+
+    links.forEach((link) => {
+        const linkUrl = new URL(link.href);
+        if (linkUrl.pathname === currentUrl) {
+            link.classList.add("active");
+        }
+    });
 }
 
 export function cargarpartials() {
-    //función que se exporta
-
     document.addEventListener("DOMContentLoaded", function () {
-        cargarcomponente("header-container", "/pages/partials/header.html"); //llama a la función para cargar el header
-        cargarcomponente("aside-container", "/pages/partials/aside.html");
+        cargarcomponente("header-container", "/pages/partials/header.html");
+        cargarcomponente(
+            "aside-container",
+            "/pages/partials/aside.html",
+            resaltarEnlaceActivo
+        );
         cargarcomponente("footer-container", "/pages/partials/footer.html");
     });
 }
