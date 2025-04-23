@@ -1,5 +1,5 @@
 //declaración de variables y constantes
-const Nombre = "Javier"; //constante tipo string. Debe inicializarse en su creación
+var Nombre = "Javier"; //constante tipo string. Debe inicializarse en su creación
 let edad = 20; //variable tipo number
 let altura; //variable tipo undefined
 let coche = null; //variable tipo null

@@ -276,6 +276,16 @@ export function eventos() {
     botonr.addEventListener("click", (evento) => {
         document.getElementById("campo").removeEventListener("keydown", ftecla);
     });
+
+    window.addEventListener("resize", () => {
+        console.log(
+            "El ancho de la ventana es: " +
+                window.innerWidth +
+                "px, y el alto es: " +
+                window.innerHeight +
+                "px"
+        );
+    });
 }
 
 function ftecla(evento) {
@@ -443,3 +453,117 @@ export function arrays() {
 //         historial.pop();
 //     }
 // }
+
+//9 ******************************************************************************************************************
+//9 ************************************************************************** objetos.html
+//9 ******************************************************************************************************************
+
+export function objetos() {
+    let alumno = "Javier";
+    let alumnos = ["Javier", "Paco", "Luis"];
+
+    let persona = {
+        nombre: "Javier",
+        edad: 20,
+        altura: 1.8,
+        coche: null,
+        esMayorDeEdad: true,
+        companeros: ["Olga", "Juan", "Fran"],
+    };
+
+    //añadir propiedad
+    persona.apellidos = "Garcia";
+
+    console.log(persona.nombre + " " + persona.apellidos);
+    //modificar propiedad
+    persona.altura = 1.9;
+
+    //eliminar propiedad
+    delete persona.apellidos;
+
+    console.log(persona.nombre + " " + persona.apellidos);
+
+    console.log(persona.hasOwnProperty("nombre"));
+
+    for (let propiedad in persona) {
+        console.log(propiedad + ": " + persona[propiedad]);
+    }
+
+    //constructor
+    function Personas(nombreP, edadP, alturaP) {
+        this.nombre = nombreP;
+        this.edad = edadP;
+        this.altura = alturaP;
+    }
+
+    let persona1 = new Personas("Javier", 20, 1.8);
+    let persona2 = new Personas("Paco", 20, 1.8);
+    let persona3 = new Personas("Luis", 20, 1.8);
+
+    console.log(persona1);
+    console.log(persona);
+
+    Personas.prototype.apellidos = "Garcia";
+
+    Personas.prototype.saludar = function () {
+        console.log("Hola " + this.nombre);
+    };
+
+    //métodos
+    let persona4 = {
+        nombre: "Javier",
+        edad: 20,
+        altura: 1.8,
+        coche: null,
+        esMayorDeEdad: true,
+        companeros: ["Olga", "Juan", "Fran"],
+
+        saludar: function () {
+            console.log("Hola " + this.nombre);
+        },
+    };
+
+    persona4.saludar();
+
+    persona4.despedirse = function () {
+        console.log("Adios " + this.nombre);
+    };
+
+    persona4.despedirse();
+
+    let persona5 = {
+        nombre: "Javier",
+        edad: 20,
+        altura: 1.8,
+        coche: null,
+        esMayorDeEdad: true,
+        companeros: ["Olga", "Juan", "Fran"],
+        vehiculos: {
+            coche: "Bmw",
+            moto: "Honda",
+        },
+    };
+
+    console.log(persona5.vehiculos.coche);
+
+    document.getElementById("prueba").innerHTML = persona5.nombre;
+
+    let texto = "";
+    for (let x in persona5) {
+        if (typeof persona5[x] == "object") {
+            for (let y in persona5[x]) {
+                texto += y + ": " + persona5[x][y] + "<br>";
+            }
+        } else {
+            texto += x + ": " + persona5[x] + "<br>";
+        }
+    }
+
+    document.getElementById("prueba2").innerHTML = texto;
+}
+
+//9 ******************************************************************************************************************
+//9 ************************************************************************** clases.html
+//9 ******************************************************************************************************************
+
+export function clases() {}
